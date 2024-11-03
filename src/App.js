@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from './components/Sidebar';
+import Form from './components/Input';
+import { createContext, useState } from 'react';
+import Output from './components/Output';
+
+export const OutputContext = createContext()
 
 function App() {
+  const [op, setOp] = useState();
+  const [object, setObject] = useState('');
+  const [output, setOutput] = useState('');
+  const outputContextValue = { output, setOutput };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <OutputContext.Provider value={outputContextValue}>
+        <Sidebar setOp={setOp} setObject={setObject} />
+        <Form op={op} object={object} />
+        <Output />
+      </OutputContext.Provider>
     </div>
   );
 }
