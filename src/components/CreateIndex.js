@@ -32,16 +32,20 @@ const CreateIndex = ({ object }) => {
     <div>
       <h1>Create Index</h1>
       <div>
+        <label htmlFor="index_name">Index Name:</label>
         <input
           type="text"
           placeholder="Index Name"
+          id="index_name"
           value={indexName}
           onChange={(e) => setIndexName(e.target.value)}
         />
       </div>
       <div>
+        <label htmlFor="table_name">Table Name:</label>
         <input
           type="text"
+          id="table_name"
           placeholder="Table Name"
           value={indexTableName}
           onChange={(e) => setIndexTableName(e.target.value)}
@@ -59,8 +63,10 @@ const CreateIndex = ({ object }) => {
         ))}
       </div>
       <div>
+        <label htmlFor="column">Column:</label>
         <input
           type="text"
+          id="column"
           placeholder="Column"
           value={currentColumn}
           onChange={(e) => setCurrentColumn(e.target.value)}
@@ -69,11 +75,9 @@ const CreateIndex = ({ object }) => {
           Add Column
         </button>
       </div>
-      <div>
-        <button type="button" onClick={handleSubmit}>
+        <button type="button" onClick={handleSubmit} className="generate_btn">
           Generate SQL
         </button>
-      </div>
     </div>
   );
 };

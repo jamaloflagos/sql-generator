@@ -1,14 +1,14 @@
 import { OutputContext } from "../App";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const Output = () => {
-    // const [copyerror, setCopyError] = useState();
     const {output} = useContext(OutputContext);
+    const [copySuccess, setCopySuccess] = useState();
 
     async function copyToClipboard(text) {
         try {
           await navigator.clipboard.writeText(text);
-          alert('Copied');
+          setCopySuccess('Copied succesfully!');
         } catch (err) {
           alert('Failed to copy');
           console.error('Failed to copy: ', err);
@@ -17,8 +17,9 @@ const Output = () => {
     const formattedOutput = output.split('\n');
     
     return (
-        <div>
-            {output && <button onClick={() => copyToClipboard(output)}>Copy</button>}
+        <div className={output ? 'output_div' : ''}>
+            {output && <button onClick={() => copyToClipboard(output)} className='copy_btn'>Copy</button>}
+            {copySuccess && <p className="copy_success">{copySuccess}</p>}
             {output && output.includes('\n') ? ( 
                 formattedOutput.map((line, index) => (
                     <div key={index}>

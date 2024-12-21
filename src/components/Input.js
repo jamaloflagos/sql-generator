@@ -5,13 +5,11 @@ import CreateView from "./CreateView";
 import Select from "./Select";
 import Insert from "./Insert";
 
-const Input = ({ op, object }) => {
-  switch (op) {
+const Input = ({ operation, object }) => {
+  switch (operation) {
     case "CREATE":
       return (
-        <>
-          <h1>{op}</h1>
-
+        <div>
           {object.toUpperCase() === "TABLE" && <CreateTable object={object} />}
 
           {object.toUpperCase() === "DATABASE" && (
@@ -21,14 +19,14 @@ const Input = ({ op, object }) => {
           {object.toUpperCase() === "INDEX" && <CreateIndex object={object} />}
 
           {object.toUpperCase() === "VIEW" && <CreateView object={object} />}
-        </>
+        </div>
       );
     case "ALTER":
-      return <h1>{op}</h1>;
+      return <h1>{operation}</h1>;
     case "TRUNCATE":
-      return <h1>{op}</h1>;
+      return <h1>{operation}</h1>;
     case "DELETE":
-      return <h1>{op}</h1>;
+      return <h1>{operation}</h1>;
     case "INSERT":
       return <Insert />;
     case "SELECT":

@@ -1,0 +1,123 @@
+.copy_btn {
+  background: blue;
+  color: white;
+  width: 80px;
+  height: fit-content;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 5px;
+  left: 90%;
+  top: 0px;
+  cursor: pointer;
+} 
+
+.output_div {
+  border: 1px solid black;
+}
+
+.copy_success {
+  position: relative;
+  left: 90%;
+  top: 0px;
+  margin: 0;
+}
+
+.sidebar_form_div {
+  height: 100vh; /* Full viewport height */
+  /* overflow: hidden; Prevent horizontal scrolling */
+  position: relative;
+}
+
+.sidebar button {
+  /* border: none; */
+  padding: 10px;
+  text-align: center;
+}
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease; /* Smooth transition for collapse */
+  background-color: #f4f4f4; /* Sidebar background color */
+  width: 200px;
+  height: 100%;
+  padding-top: 60px;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%); /* Move sidebar off-screen */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Ensure sidebar is fully visible */
+}
+
+.form {
+  padding: 50px;
+  background-color: #fff;
+}
+
+.toggle_button {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10; /* Ensure the button is above the sidebar */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.toggle_button:hover {
+  background-color: #0056b3;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-content-display, button, label {
+  display: block;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+button {
+  margin: 10px;
+}
+/* label, select, input {
+  display: block;
+}
+
+input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+} */
+
+.generate_btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin: 20px auto;
+  cursor: pointer;
+  border-radius: 4px;
+}

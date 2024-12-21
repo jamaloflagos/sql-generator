@@ -1,31 +1,55 @@
-import React, { useState, useContext } from 'react'; // Import React for JSX syntax
-import { operations, objects } from './data';
+import React, { useState, useContext } from "react";
+import { operations, objects } from "./data";
 import { OutputContext } from "../App";
-const Sidebar = ({ setOp, setObject }) => {
-  const [displayDD, setDisplayDD] = useState(false);
+const Sidebar = ({ setOperation, setObject, className, toggleSidebar }) => {
+  const [displayDropdown, setDisplayDropdown] = useState(false);
   const { setOutput } = useContext(OutputContext);
   return (
-    <div className="sidebar"> 
-      {operations.map((operation) => ( 
+    <div className={className}>
+      {operations.map((operation) => (
         <React.Fragment key={operation}>
-          {operation === 'CREATE' ? (
-            <div className="dropdown"> 
-              <button className="dropbtn" onClick={() => {
-                setOp(operation);
-                setOutput('');
-                setDisplayDD(val => !val);
-              }}>
+          {operation === "CREATE" ? (
+            <div className="dropdown">
+              <button
+                className="dropbtn"
+                onClick={() => {
+                  setOperation(operation);
+                  setOutput("");
+                  setDisplayDropdown((val) => !val);
+                }}
+              >
                 {operation}
               </button>
-                
-              <div className={displayDD ? 'dropdown-content-display' : 'dropdown-content'}>
-                {objects.map(object => (
-                  <button key={object} onClick={() => {setObject(object); setOutput('')}}>{object}</button>
+
+              <div
+                className={
+                  displayDropdown ? "dropdown-content-display" : "dropdown-content"
+                }
+              >
+                {objects.map((object) => (
+                  <button
+                    key={object}
+                    onClick={() => {
+                      toggleSidebar();
+                      setObject(object);
+                      setOutput("");
+                    }}
+                  >
+                    {object}
+                  </button>
                 ))}
               </div>
             </div>
           ) : (
-            <button key={operation} onClick={() => {setDisplayDD(false); setOutput(''); setOp(operation)}}>
+            <button
+              key={operation}
+              onClick={() => {
+                toggleSidebar();
+                setDisplayDropdown(false);
+                setOutput("");
+                setOperation(operation);
+              }}
+            >
               {operation}
             </button>
           )}

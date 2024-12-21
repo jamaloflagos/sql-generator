@@ -707,7 +707,7 @@ const CreateView = ({ object }) => {
         </div>
       </div>
       {message && <span>{message}</span>}
-      <button onClick={handleSubmit}>Generate SELECT Statement</button>
+      <button onClick={handleSubmit} className="generate_btn">Generate SELECT Statement</button>
     </div>
   );
 };

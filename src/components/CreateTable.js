@@ -107,7 +107,7 @@ const CreateTable = ({ object }) => {
     <div>
       <h1>Create Table</h1>
       <div>
-        <label htmlFor="table_name">Table Name:</label>
+        <label htmlFor="table_name">Table Name:</label> 
         <input
           type="text"
           placeholder="Table Name"
@@ -156,6 +156,7 @@ const CreateTable = ({ object }) => {
           />
         )}
         <div>
+          <h1>Constraints</h1>
           {availableConstraints.map((constraint, index) => (
             <label key={index}>
               <input
@@ -209,14 +210,12 @@ const CreateTable = ({ object }) => {
           </div>
         )}
         <button type="button" onClick={addColumn}>
-          Add
+          Add Column
         </button>
       </div>
-      <div>
-        <button type="button" onClick={handleSubmit}>
+        <button type="button" onClick={handleSubmit} className="generate_btn">
           Generate SQL
         </button>
-      </div>
     </div>
   );
 };
